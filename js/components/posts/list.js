@@ -1,11 +1,12 @@
 /* global alert, confirm */
 import React from 'react'
 import {DropdownButton, MenuItem, Button} from 'react-bootstrap'
-// import {ListView, TextFilterControl, SelectFilterControl, OptionsField} from 'bstrap-react-mobx-admin'
-import TextFilterControl from 'bstrap-react-mobx-admin/src/filtercontrols/text'
-import SelectFilterControl from 'bstrap-react-mobx-admin/src/filtercontrols/select'
-import OptionsField from 'bstrap-react-mobx-admin/src/field/opts'
-import ListView from 'bstrap-react-mobx-admin/src/view/list'
+import {
+  ListView,
+  TextFilterControl,
+  SelectFilterControl,
+  OptionsField
+} from 'bstrap-react-mobx-admin'
 
 const Tags = ({attr, val, opts}) => {
   function onClick () {

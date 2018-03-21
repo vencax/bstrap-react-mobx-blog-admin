@@ -1,13 +1,9 @@
 /* global marked */
 import React from 'react'
 import {observer} from 'mobx-react'
-// import {
-//   DateInput, TextInput, TypeaheadInput, EditView
-// } from 'bstrap-react-mobx-admin'
-import TextInput from 'bstrap-react-mobx-admin/src/input/text'
-import DateInput from 'bstrap-react-mobx-admin/src/input/date'
-import TypeaheadInput from 'bstrap-react-mobx-admin/src/input/typeahead'
-import EditView from 'bstrap-react-mobx-admin/src/view/edit'
+import {
+  DateInput, TextInput, TypeAheadInput, EditView
+} from 'bstrap-react-mobx-admin'
 
 const MDPreview = observer(({state}) => {
   const value = state.record.get('content')
@@ -28,7 +24,7 @@ const PostEditForm = ({store, options, __}) => {
         <TextInput label={__('title')} attr={'title'} record={record}
           onChange={updateField} errors={errors} disabled={disabled}
           showError={false} />
-        <TypeaheadInput label={__('Category')} attr={'category'} record={record}
+        <TypeAheadInput label={__('Category')} attr={'category'} record={record}
           options={options.categories()}
           onChange={updateField}
           errors={errors} disabled={disabled} emptyLabel='Nic nenalezeno'
@@ -40,7 +36,7 @@ const PostEditForm = ({store, options, __}) => {
         <TextInput componentClass='textarea'
           label={__('content')} attr={'content'} record={record}
           onChange={updateField} errors={errors} disabled={disabled} />
-        <TypeaheadInput label={__('Tags')} attr={'tags'} record={record}
+        <TypeAheadInput label={__('Tags')} attr={'tags'} record={record}
           options={options.tags.map(i => ({value: i.id.toString(), label: i.name}))}
           onChange={updateField} multiple
           errors={errors} disabled={disabled} emptyLabel='Nic nenalezeno'

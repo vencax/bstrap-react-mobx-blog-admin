@@ -1,15 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {observer} from 'mobx-react'
-// import {
-//   TextInput, BoolInput, CHBoxSelect, OptionSelect, EditView
-// } from 'bstrap-react-mobx-admin'
-import ManipStore from 'react-mobx-admin/src/store/manip'
-import TextInput from 'bstrap-react-mobx-admin/src/input/text'
-import BoolInput from 'bstrap-react-mobx-admin/src/input/date'
-import CHBoxSelect from 'bstrap-react-mobx-admin/src/input/chbox_multiselect'
-import OptionSelect from 'bstrap-react-mobx-admin/src/input/option_select'
-import EditView from 'bstrap-react-mobx-admin/src/view/edit'
+import {
+  TextInput,
+  BoolInput,
+  CheckBoxSelect,
+  OptionSelect,
+  EditView
+} from 'bstrap-react-mobx-admin'
+import {ManipStore} from 'react-mobx-admin'
 
 const ValueVisualizer = observer(({record, attr}) => {
   return <span>{JSON.stringify(record.get(attr))}</span>
@@ -32,7 +31,7 @@ const TagEditForm = ({store, __}) => {
           attr={'optselect'} record={record}
           disabled={disabled} onChange={updateField} errors={errors}
           options={opts} />
-        <CHBoxSelect label={__('Test comma separated multival')}
+        <CheckBoxSelect label={__('Test comma separated multival')}
           attr={'chbox'} record={record}
           disabled={disabled} onChange={updateField} errors={errors}
           options={opts} />

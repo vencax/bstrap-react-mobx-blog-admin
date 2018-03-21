@@ -32,8 +32,8 @@ module.exports = {
   // e.g.: import DataRequester from 'react-mobx-admin/services/requester'
   resolve: {
     alias: {
-      'bstrap-react-mobx-admin': path.join(__dirname, 'node_modules/bstrap-react-mobx-admin'),
-      'react-mobx-admin': path.join(__dirname, 'node_modules/react-mobx-admin'),
+      'bstrap-react-mobx-admin': path.join(__dirname, 'node_modules/bstrap-react-mobx-admin/src'),
+      'react-mobx-admin': path.join(__dirname, 'node_modules/react-mobx-admin/src'),
       'react-bootstrap': path.join(__dirname, 'node_modules/react-bootstrap'),
       'prop-types': path.join(__dirname, 'node_modules/prop-types'),
       'react-bootstrap-date-picker': path.join(__dirname, 'node_modules/react-bootstrap-date-picker')

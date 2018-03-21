@@ -1,6 +1,4 @@
-// import {ManipStore, TableStore} from 'react-mobx-admin'
-import ManipStore from 'react-mobx-admin/src/store/manip'
-import TableStore from 'react-mobx-admin/src/store/list'
+import {ManipStore, ListStore} from 'react-mobx-admin'
 
 class BaseManipStore extends ManipStore {
   //
@@ -30,7 +28,7 @@ class BaseManipStore extends ManipStore {
 export {BaseManipStore}
 
 
-class BaseTableStore extends TableStore {
+class BaseTableStore extends ListStore {
   constructor(store, router, getEntries, updateQPars) {
     super(router, getEntries, updateQPars)
     this.store = store
