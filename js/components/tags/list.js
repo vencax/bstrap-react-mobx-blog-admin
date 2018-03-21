@@ -1,9 +1,13 @@
 /* global confirm, alert */
 import React from 'react'
 import {Button} from 'react-bootstrap'
-import {
-  TextFilterControl, SelectFilterControl, BoolField, ListView
-} from 'bstrap-react-mobx-admin'
+// import {
+//   TextFilterControl, SelectFilterControl, BoolField, ListView
+// } from 'bstrap-react-mobx-admin'
+import TextFilterControl from 'bstrap-react-mobx-admin/src/filtercontrols/text'
+import SelectFilterControl from 'bstrap-react-mobx-admin/src/filtercontrols/select'
+import BoolField from 'bstrap-react-mobx-admin/src/field/bool'
+import ListView from 'bstrap-react-mobx-admin/src/view/list'
 
 const TagListView = ({store}) => {
   //

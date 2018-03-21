@@ -1,9 +1,13 @@
 /* global marked */
 import React from 'react'
 import {observer} from 'mobx-react'
-import {
-  DateInput, TextInput, TypeaheadInput, EditView
-} from 'bstrap-react-mobx-admin'
+// import {
+//   DateInput, TextInput, TypeaheadInput, EditView
+// } from 'bstrap-react-mobx-admin'
+import TextInput from 'bstrap-react-mobx-admin/src/input/text'
+import DateInput from 'bstrap-react-mobx-admin/src/input/date'
+import TypeaheadInput from 'bstrap-react-mobx-admin/src/input/typeahead'
+import EditView from 'bstrap-react-mobx-admin/src/view/edit'
 
 const MDPreview = observer(({state}) => {
   const value = state.record.get('content')
@@ -36,8 +40,8 @@ const PostEditForm = ({store, options, __}) => {
         <TextInput componentClass='textarea'
           label={__('content')} attr={'content'} record={record}
           onChange={updateField} errors={errors} disabled={disabled} />
-        <TypeaheadInput label={__('Tags')} attr={'taglist'} record={record}
-          options={options.categories()}
+        <TypeaheadInput label={__('Tags')} attr={'tags'} record={record}
+          options={options.tags.map(i => ({value: i.id.toString(), label: i.name}))}
           onChange={updateField} multiple
           errors={errors} disabled={disabled} emptyLabel='Nic nenalezeno'
           renderMenuItemChildren={typeAheadMenuRender} />

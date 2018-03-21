@@ -1,10 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import {observer} from 'mobx-react'
-import {
-  TextInput, BoolInput, CHBoxSelect, OptionSelect, EditView
-} from 'bstrap-react-mobx-admin'
-import {ManipStore} from 'react-mobx-admin'
+// import {
+//   TextInput, BoolInput, CHBoxSelect, OptionSelect, EditView
+// } from 'bstrap-react-mobx-admin'
+import ManipStore from 'react-mobx-admin/src/store/manip'
+import TextInput from 'bstrap-react-mobx-admin/src/input/text'
+import BoolInput from 'bstrap-react-mobx-admin/src/input/date'
+import CHBoxSelect from 'bstrap-react-mobx-admin/src/input/chbox_multiselect'
+import OptionSelect from 'bstrap-react-mobx-admin/src/input/option_select'
+import EditView from 'bstrap-react-mobx-admin/src/view/edit'
 
 const ValueVisualizer = observer(({record, attr}) => {
   return <span>{JSON.stringify(record.get(attr))}</span>

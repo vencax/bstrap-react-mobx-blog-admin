@@ -1,32 +1,33 @@
 /* global alert, confirm */
 import React from 'react'
-// import { observer } from 'mobx-react'
 import {DropdownButton, MenuItem, Button} from 'react-bootstrap'
-import {OptionsField} from 'react-mobx-admin'
-import {ListView, TextFilterControl, SelectFilterControl} from 'bstrap-react-mobx-admin'
+// import {ListView, TextFilterControl, SelectFilterControl, OptionsField} from 'bstrap-react-mobx-admin'
+import TextFilterControl from 'bstrap-react-mobx-admin/src/filtercontrols/text'
+import SelectFilterControl from 'bstrap-react-mobx-admin/src/filtercontrols/select'
+import OptionsField from 'bstrap-react-mobx-admin/src/field/opts'
+import ListView from 'bstrap-react-mobx-admin/src/view/list'
+
+const Tags = ({attr, val, opts}) => {
+  function onClick () {
+    alert('clicked tag ' + val)
+  }
+  const _tagComponent = ({text}) => (
+    <Button bsSize='xs' style={{float: 'left'}} onClick={onClick}>{text}</Button>
+  )
+  return (
+    <div>
+      {
+        val.toString().split(',').map((i, idx) => <OptionsField key={idx} attr={attr} val={i}
+          options={opts} extractOpt={(i) => ({label: i.name, value: i.id})}
+          Component={_tagComponent}
+        />)
+      }
+    </div>
+  )
+}
 
 const PostListView = ({store}) => {
   //
-  const Tags = ({attr, val}) => {
-    function onClick () {
-      alert('clicked tag ' + val)
-    }
-    const _tagComponent = ({text}) => (
-      <Button bsSize='xs' style={{float: 'left'}} onClick={onClick}>{text}</Button>
-    )
-    return (
-      <div>
-        {
-          val.map((i, idx) => <OptionsField key={idx} attr={attr} val={i}
-            options={store.options.tags}
-            extractOpt={(i) => ({label: i.name, value: i.id})}
-            Component={_tagComponent}
-          />)
-        }
-      </div>
-    )
-  }
-
   const batchActions = (store) => {
     function _batchDelete () {
       if (confirm(`Are you sure you want to delete selected items?`)) {
@@ -52,7 +53,7 @@ const PostListView = ({store}) => {
         <OptionsField attr={attr} val={val} options={store.options.categories()} />
       )
       case ['published_at', 'unpublished_at']: return new Date(val)
-      case 'tags': return <Tags attr={attr} val={val} />
+      case 'tags': return <Tags attr={attr} val={val} opts={store.options.tags} />
       default: return val
     }
   }

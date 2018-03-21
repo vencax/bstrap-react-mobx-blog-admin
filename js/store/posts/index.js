@@ -2,15 +2,16 @@ import {BaseTableStore, BaseManipStore} from '../bases'
 
 class PostManipStore extends BaseManipStore {
   //
-  load(load) {
-    this.store.loadOptions('tags', '/tags')
-    return super.load(load)
+  load(id) {
+    return this.store.loadOptions('tags', '/tags').then(() => {
+      return super.load(id)
+    })
   }
 
   edittitle = 'edit a nice post'
   createtitle = 'add very interresting post ..'
   validators = {
-    'title': (val) => this.lengthValidator(val, 10),
+    'title': (val) => this.lengthValidator(val, 64),
     'content': (val) => this.lengthValidator(val),
     'category': (val) => this.lengthValidator(val),
     'published_at': (val) => this.lengthValidator(val),
@@ -45,8 +46,9 @@ class PostTableStore extends BaseTableStore {
   noSort = ['id', 'tags']
 
   init() {
-    super.init()
-    this.store.loadOptions('tags', '/tags')
+    return this.store.loadOptions('tags', '/tags').then(() => {
+      return super.init()
+    })
   }
 }
 export {PostTableStore}

@@ -1,4 +1,6 @@
-import {ManipStore, TableStore} from 'react-mobx-admin'
+// import {ManipStore, TableStore} from 'react-mobx-admin'
+import ManipStore from 'react-mobx-admin/src/store/manip'
+import TableStore from 'react-mobx-admin/src/store/list'
 
 class BaseManipStore extends ManipStore {
   //
@@ -8,11 +10,11 @@ class BaseManipStore extends ManipStore {
   }
 
   loadEntry (id) {
-    const entityname = this.store.requester.router.params.entityname
+    const entityname = this.store.router.params.entityname
     return this.store.requester.getEntry(entityname, id)
   }
   saveEntry (data) {
-    const entityname = this.store.requester.router.params.entityname
+    const entityname = this.store.router.params.entityname
     return this.store.requester.saveEntry(entityname, data, data.id)
   }
 

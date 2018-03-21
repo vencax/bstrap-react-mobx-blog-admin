@@ -1,19 +1,12 @@
-# react-mobx-admin
+# bstrap-react-mobx-blog-admin
 
-Add a ReactJS admin GUI to any RESTful API.
-Minimalistic framework for React based admin applications heavily inspired by [admin-on-rest](https://github.com/marmelab/admin-on-rest).
-But this uses [MobX](https://mobxjs.github.io/mobx/) for state management.
-And aims to extendability and code readability and simplicity.
+Sample project using [bstrap-react-mobx-admin](https://github.com/vencax/bstrap-react-mobx-admin) for GUI components and [react-mobx-admin](https://github.com/vencax/react-mobx-admin) for state management stores.
 
-
-## tech details
-
-It is raw ES6 lib, so you need bundler with transpiling (webpack with babel loader).
-Try it by yourself:
+## How to run
 
 ```sh
-git clone https://github.com/blueskydigital/react-mobx-admin
-cd react-mobx-admin
+git clone https://github.com/vencax/bstrap-react-mobx-blog-admin blogexample
+cd blogexample
 npm i
 make run
 ```
