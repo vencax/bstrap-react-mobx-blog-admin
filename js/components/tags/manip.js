@@ -1,3 +1,4 @@
+/* global alert */
 import React from 'react'
 import PropTypes from 'prop-types'
 import {observer} from 'mobx-react'
@@ -53,7 +54,15 @@ const TagsEditView = ({store}) => (
     options={{
       editTitle: () => store.__('edit tag'),
       buttonsOnTop: false,
-      saveText: () => (<span><b>DO</b> save</span>)
+      saveText: () => (<span><b>DO</b> save</span>),
+      customActionButtons: [
+        <button type='button' key='c1' className='btn btn-default' onClick={() => alert('hi form custom1')}>
+          custom1
+        </button>,
+        <button type='button' key='c2' className='btn' onClick={() => alert('hi form custom2')}>
+          custom2
+        </button>
+      ]
     }}>
     <TagEditForm store={store.cv} __={store.__.bind(store)} />
   </EditView>
