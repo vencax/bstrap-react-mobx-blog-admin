@@ -42,7 +42,7 @@ export default class StateStore extends OptionsStore {
     this.cv = new StoreClass(this, this.router, getEntries, (newQPars) => {
       this.router.goTo(this.router.currentView, this.router.params, this, newQPars)
     })
-    this.cv.init()
+    this.cv.load()
   }
 
   beforeListViewExit() {

@@ -1,3 +1,4 @@
+import { action } from 'mobx'
 import {ManipStore, ListStore} from 'react-mobx-admin'
 
 class BaseManipStore extends ManipStore {
@@ -29,11 +30,16 @@ export {BaseManipStore}
 
 
 class BaseTableStore extends ListStore {
-  constructor(store, router, getEntries, updateQPars) {
-    super(router, getEntries, updateQPars)
+  constructor(store) {
+    super(store.router)
     this.store = store
   }
   perPage = 3
+
+  @action updateQPars (newQPars) {
+    const r = this.store.router
+    r.goTo(r.currentView, r.params, this.store, newQPars)
+  }
 
   deleteData (rows) {
     rows.map(i => this.items.remove(i))

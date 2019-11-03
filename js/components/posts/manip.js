@@ -6,7 +6,7 @@ import {
 } from 'bstrap-react-mobx-admin'
 
 const MDPreview = observer(({state}) => {
-  const value = state.record.get('content')
+  const value = state.record.content
   return value ? <div dangerouslySetInnerHTML={{__html: marked(value)}} /> : null
 })
 
@@ -14,7 +14,7 @@ const PostEditForm = ({store, options, __}) => {
   const record = store.record
   const errors = store.errors
   const updateField = store.updateData.bind(store)
-  const disabled = Number(record.get('id')) % 2 === 0
+  const disabled = Number(record.id) % 2 === 0
   const typeAheadMenuRender = (option, props) => (
     <span key={option.value}>{option.label}</span>
   )

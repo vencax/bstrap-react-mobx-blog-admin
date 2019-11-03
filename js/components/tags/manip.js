@@ -12,14 +12,14 @@ import {
 import {ManipStore} from 'react-mobx-admin'
 
 const ValueVisualizer = observer(({record, attr}) => {
-  return <span>{JSON.stringify(record.get(attr))}</span>
+  return <span>{JSON.stringify(record[attr])}</span>
 })
 
 const TagEditForm = ({store, __}) => {
   const record = store.record
   const errors = store.errors
   const updateField = store.updateData.bind(store)
-  const disabled = Number(record.get('id')) % 2 === 0
+  const disabled = Number(record.id) % 2 === 0
   const opts = [{label: 'Option 1', value: '1'}, {label: 'Option 2', value: '2'}]
   return (
     <div className='row'>

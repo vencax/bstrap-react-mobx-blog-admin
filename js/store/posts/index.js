@@ -16,7 +16,7 @@ class PostManipStore extends BaseManipStore {
     'category': (val) => this.lengthValidator(val),
     'published_at': (val) => this.lengthValidator(val),
     'unpublished_at': (val) => {
-      const published_at = this.record.get('published_at')
+      const published_at = this.record.published_at
       if (published_at && val && published_at > val) {
         return 'published must be less than unpublished'
       }
@@ -45,10 +45,14 @@ class PostTableStore extends BaseTableStore {
   }
   noSort = ['id', 'tags']
 
-  init() {
+  load() {
     return this.store.loadOptions('tags', '/tags').then(() => {
-      return super.init()
+      return super.load()
     })
+  }
+
+  getEntries (opts) {
+    return this.store.requester.getEntries('posts', opts)
   }
 }
 export {PostTableStore}

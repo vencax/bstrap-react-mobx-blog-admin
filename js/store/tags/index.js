@@ -28,5 +28,8 @@ class TagTableStore extends BaseTableStore {
   }
   defaultSortField = 'name'
   defaultSortDir = 'ASC'
+  getEntries (opts) {
+    return this.store.requester.getEntries('tags', opts)
+  }
 }
 export {TagTableStore}
